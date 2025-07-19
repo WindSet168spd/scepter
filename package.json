@@ -1,0 +1,24 @@
+{
+  "name": "scepter",
+  "version": "0.0.1",
+  "scripts": {
+    "dev:local": "turbo run start:dev",
+    "format": "turbo run format"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WindSet168spd/scepter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WindSet168spd/scepter/issues"
+  },
+  "homepage": "https://github.com/WindSet168spd/scepter#readme",
+  "devDependencies": {
+    "turbo": "^2.5.4"
+  },
+  "packageManager": "npm@10.9.2",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

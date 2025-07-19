@@ -1,0 +1,11 @@
+{
+  "extends": "@scepter/tsconfig/nest-base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": "./"
+  },
+  "watchOptions": {
+    "watchFile": "fixedPollingInterval"
+  }
+}
+
