@@ -2,6 +2,13 @@
   "extends": "@scepter/tsconfig/next-base.json",
   "compilerOptions": {
     "paths": {
+      "@app/*": ["./src/app/*"],
+      "@entities/*": ["./src/entities/*"],
+      "@features/*": ["./src/features/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@shared/*": ["./src/shared/*"],
+      "@widgets/*": ["./src/widgets/*"],
+
       "@/*": ["./src/*"]
     }
   },
