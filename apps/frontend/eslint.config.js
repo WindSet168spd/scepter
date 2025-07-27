@@ -1,19 +1,19 @@
 // @ts-check
-import tseslint from 'typescript-eslint'
-import baseConfig from '../../eslint.config.js'
-import pluginNext from '@next/eslint-plugin-next'
+import { config } from "typescript-eslint";
+import baseConfig from "../../eslint.config.js";
+import pluginNext from "@next/eslint-plugin-next";
 
-export default tseslint.config(
+export default config(
   baseConfig,
   {
     plugins: {
-      '@next/next': pluginNext,
+      "@next/next": pluginNext,
     },
   },
   {
-    files: ['**/*.ts', '**/*.tsx'],
+    files: ["**/*.ts", "**/*.tsx"],
     rules: {
-      ...pluginNext.configs.recommended.rules
-    }
-  }
+      ...pluginNext.configs.recommended.rules,
+    },
+  },
 );

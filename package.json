@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "scripts": {
     "dev:local": "turbo run start:dev",
-    "format": "turbo run format"
+    "format": "turbo run format",
+    "lint": "turbo run lint",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -14,7 +16,16 @@
   },
   "homepage": "https://github.com/WindSet168spd/scepter#readme",
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
     "turbo": "^2.5.4"
+  },
+  "lint-staged": {
+    "{apps,packages}/**/*.{js,ts,tsx,json,css,md}": [
+      "prettier --check"
+    ]
   },
   "packageManager": "npm@10.9.2",
   "workspaces": [
