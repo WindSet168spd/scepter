@@ -31,5 +31,14 @@ services:
       postgres:
         condition: service_healthy
 
+  frontend:
+    build:
+      context: .
+      dockerfile: ./apps/frontend/Dockerfile
+    ports:
+      - ${FRONTEND_PORT}:3000
+    depends_on:
+      - backend
+
 volumes:
   postgres_data:
