@@ -75,19 +75,15 @@ export class AppController {
   private getRelics(relics: Relic[]): scepterRelic[] {
     const allRelics = [];
     relics.forEach((relic) => {
-      if (!relic) {
-        allRelics.push(null);
-      } else {
-        const rel = {
-          set: relic.relicData.set.name.toString(),
-          type: relic.relicData.type.name.toString(),
-          level: relic.level,
-          image: relic.relicData.figureIcon.url,
-          mainStat: relic.mainStat.value,
-          subStats: this.getSubs(relic),
-        };
-        allRelics.push(rel);
-      }
+      const rel = {
+        set: relic.relicData.set.name.toString(),
+        type: relic.relicData.type.name.toString(),
+        level: relic.level,
+        image: relic.relicData.figureIcon.url,
+        mainStat: relic.mainStat.value,
+        subStats: this.getSubs(relic),
+      };
+      allRelics.push(rel);
     });
 
     return allRelics as scepterRelic[];

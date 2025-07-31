@@ -66,5 +66,5 @@ export default interface ScepterChar {
     quantumDMGBonus: number;
   };
 
-  relics: Array<scepterRelic | null>;
+  relics: scepterRelic[];
 }
