@@ -1,0 +1,17 @@
+{
+  "name": "@scepter/utilities",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "start:dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "zod": "^3.25.74"
+  },
+  "devDependencies": {
+    "@scepter/tsconfig": "*",
+    "typescript": "latest"
+  }
+}

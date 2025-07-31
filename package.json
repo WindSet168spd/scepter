@@ -2,10 +2,14 @@
   "name": "scepter",
   "version": "0.0.1",
   "scripts": {
-    "dev:local": "docker compose -f ./compose.dev.yml up -d && turbo run start:dev",
+    "dev": "docker compose -f ./compose.dev.yml up -d && turbo run start:dev",
+    "stop:dev": "docker compose -f ./compose.dev.yml stop",
+    "prod": "docker compose -f ./compose.prod.yml up -d",
+    "stop:prod": "docker compose -f ./compose.prod.yml stop",
     "format": "turbo run format",
     "lint": "turbo run lint",
-    "prepare": "husky"
+    "prepare": "if [ \"$NODE_ENV\" != \"production\" ]; then husky; fi",
+    "build": "turbo run build"
   },
   "repository": {
     "type": "git",
