@@ -3,19 +3,19 @@ services:
     image: postgres:latest
     restart: always
     environment:
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${DATABASE_NAME}
+      - POSTGRES_USER=${DATABASE_USERNAME}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
     ports:
-      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+      - "${DATABASE_PORT}:${DATABASE_PORT}"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d postgres"]
+      test: ["CMD-SHELL", "pg_isready -U ${DATABASE_USERNAME} -d postgres"]
       interval: 5s
       timeout: 2s
       retries: 20
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-    command: postgres -p ${POSTGRES_PORT} -c listen_addresses='*'
+      - postgres_data_prod:/var/lib/postgresql/data
+    command: postgres -p ${DATABASE_PORT} -c listen_addresses='*'
     logging:
       options:
         max-size: "10m"
@@ -41,4 +41,4 @@ services:
       - backend
 
 volumes:
-  postgres_data:
+  postgres_data_prod:
