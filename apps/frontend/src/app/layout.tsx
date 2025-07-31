@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import "@app/styles/globals.css";
+import "@/app/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Scepter",

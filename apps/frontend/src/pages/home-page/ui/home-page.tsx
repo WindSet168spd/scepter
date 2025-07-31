@@ -1,8 +1,9 @@
 "use client";
 
-import { Button } from "@shared/components/ui/button";
-import { Input } from "@shared/components/ui/input";
+import { Button } from "@/shared/components/ui/button";
+import { Input } from "@/shared/components/ui/input";
 import { ChevronRightIcon } from "lucide-react";
+import { redirect } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 const HomePage = () => {
@@ -19,7 +20,7 @@ const HomePage = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log(uid);
+    redirect(`${uid}`);
   };
 
   return (
