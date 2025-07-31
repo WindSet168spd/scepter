@@ -21,5 +21,15 @@ services:
         max-size: "10m"
         max-file: "3"
 
+  backend:
+    build:
+      context: .
+      dockerfile: ./apps/backend/Dockerfile
+    ports:
+      - ${BACKEND_PORT}:${BACKEND_PORT}
+    depends_on:
+      postgres:
+        condition: service_healthy
+
 volumes:
   postgres_data:

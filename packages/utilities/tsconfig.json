@@ -1,0 +1,8 @@
+{
+  "extends": "@scepter/tsconfig/nest-base.json",
+  "compilerOptions": {
+    "outDir": "./dist"
+  },
+  "include": ["src"],
+  "exclude": ["dist"]
+}
