@@ -2,7 +2,7 @@
   "name": "scepter",
   "version": "0.0.1",
   "scripts": {
-    "dev:local": "turbo run start:dev",
+    "dev:local": "docker compose -f ./compose.dev.yml up -d && turbo run start:dev",
     "format": "turbo run format",
     "lint": "turbo run lint",
     "prepare": "husky"
