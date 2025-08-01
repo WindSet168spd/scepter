@@ -1,15 +1,16 @@
 import { Module } from "@nestjs/common";
-import { AppController } from "src/app.controller";
-import { AppService } from "src/app.service";
 import { ConfigModule } from "@nestjs/config";
 import appConfig from "src/config/app.config";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { TypeOrmConfigService } from "src/database/typeorm-config.service";
 import { DataSource, DataSourceOptions } from "typeorm";
 import databaseConfig from "src/database/config/database.config";
+import { EnkaModule } from "src/enka/enka.module";
+import { UserModule } from "src/user/user.module";
 
 @Module({
   imports: [
+    EnkaModule,
     TypeOrmModule.forRootAsync({
       useClass: TypeOrmConfigService,
       dataSourceFactory: async (options: DataSourceOptions) => {
@@ -21,8 +22,9 @@ import databaseConfig from "src/database/config/database.config";
       load: [appConfig, databaseConfig],
       envFilePath: [".env"],
     }),
+    UserModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
