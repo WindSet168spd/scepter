@@ -6,4 +6,6 @@ export class User {
   nickname: string;
   signature: string;
   characters: any;
+  createdAt: Date;
+  updatedAt: Date;
 }
