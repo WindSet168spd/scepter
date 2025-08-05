@@ -7,9 +7,9 @@ import { UserService } from "./user.service";
 export class UserController {
   constructor(private readonly usersService: UserService) {}
 
-  @Get(":id")
+  @Get(":uid")
   @HttpCode(HttpStatus.OK)
-  findOne(@Param("id") id: User["id"]): Promise<NullableType<unknown>> {
+  findOne(@Param("uid") id: User["uid"]): Promise<NullableType<unknown>> {
     return this.usersService.findByUid(id);
   }
 }

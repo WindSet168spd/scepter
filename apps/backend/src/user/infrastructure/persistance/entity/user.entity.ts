@@ -17,17 +17,17 @@ export class UserEntity {
   @Column({ type: "int" })
   achievementCount: number;
 
-  @Column({ type: "string" })
+  @Column({ type: "text" })
   icon: string;
 
   @Column({ type: "int8" })
   level: number;
 
   @Index()
-  @Column("string")
+  @Column({ type: "varchar", length: 14 })
   nickname: string;
 
-  @Column("string")
+  @Column({ type: "text" })
   signature: string;
 
   @CreateDateColumn()

@@ -10,12 +10,15 @@ export class UserService {
   ) {}
 
   async findByUid(uid: number) {
-    const localUserData = await this.usersRepository.findByUid(uid);
+    // const localUserData = await this.usersRepository.findByUid(uid);
 
-    if (localUserData) return localUserData;
+    // if (localUserData) return localUserData;
 
     const starRailUserData = await this.enkaService.findUserByUid(uid);
 
+    console.dir(starRailUserData.supportCharacters[0]);
+
+    return true;
     return await this.usersRepository.create({
       uid: starRailUserData.uid,
       achievementCount: starRailUserData.achievementCount,
