@@ -1,3 +1,5 @@
+import { Character } from "src/character/domain/character";
+
 export class User {
   uid: number;
   achievementCount: number;
@@ -5,7 +7,7 @@ export class User {
   level: number;
   nickname: string;
   signature: string;
-  characters: any;
   createdAt: Date;
   updatedAt: Date;
+  characters: Character[];
 }

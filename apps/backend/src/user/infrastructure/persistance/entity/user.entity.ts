@@ -14,13 +14,13 @@ export class UserEntity {
   @PrimaryColumn()
   uid: number;
 
-  @Column({ type: "int" })
+  @Column({ type: "int", name: "achievement_count" })
   achievementCount: number;
 
   @Column({ type: "text" })
   icon: string;
 
-  @Column({ type: "int8" })
+  @Column({ type: "smallint" })
   level: number;
 
   @Index()
@@ -30,10 +30,10 @@ export class UserEntity {
   @Column({ type: "text" })
   signature: string;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ name: "created_at" })
   createdAt: Date;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({ name: "update_at" })
   updatedAt: Date;
 
   // @OneToMany(() => {}, (character) => character.userUid)
