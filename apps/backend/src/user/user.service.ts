@@ -16,7 +16,7 @@ export class UserService {
 
     const starRailUserData = await this.enkaService.findUserByUid(uid);
 
-    console.dir(starRailUserData.supportCharacters[0]);
+    console.dir(starRailUserData.supportCharacters[0].stats.characterStats);
 
     return true;
     return await this.usersRepository.create({
