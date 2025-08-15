@@ -4,8 +4,10 @@ import { StatData } from "src/stat-data/domain/stat-data";
 export class Lightcone {
   id: number;
   name: string;
-  path: Path;
+  path?: Path | null;
   stars: number;
   imageUrl: string;
-  stats: StatData;
+  statsData?: StatData[] | null;
+  createdAt: Date;
+  updatedAt: Date;
 }

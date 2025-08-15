@@ -3,7 +3,9 @@ import { UserCharacter } from "src/user-character/domain/user-character";
 
 export class UserCharacterSkillTreeNode {
   id: number;
-  userCharacter: UserCharacter;
-  skillTreeNode: SkillTreeNode;
+  userCharacter?: UserCharacter | null;
+  skillTreeNode?: SkillTreeNode | null;
   level: number;
+  createdAt: Date;
+  updatedAt: Date;
 }

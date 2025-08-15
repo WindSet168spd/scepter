@@ -6,12 +6,15 @@ import { StatData } from "src/stat-data/domain/stat-data";
 
 export class Character {
   id: number;
+  name: string;
   splashArtUrl: string;
-  stats: StatData[];
+  baseStats?: StatData[] | null;
   stars: number;
   iconUrl: string;
-  path: Path;
-  combatType: CombatType;
-  skillTreeNodes: SkillTreeNode[];
-  eidolons: Eidolon[];
+  path?: Path | null;
+  combatType?: CombatType | null;
+  skillTreeNodes?: SkillTreeNode[] | null;
+  eidolons?: Eidolon[] | null;
+  createdAt: Date;
+  updatedAt: Date;
 }

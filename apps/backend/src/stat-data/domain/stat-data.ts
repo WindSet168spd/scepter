@@ -1,9 +1,12 @@
 import { StatType } from "@scepter/utilities";
+import { Stat } from "src/stat/domain/stat";
 
 export class StatData {
   id: number;
-  statId: number;
+  stat?: Stat | null;
   value: number;
-  isNumber: boolean;
+  isPercent: boolean;
   type: StatType;
+  createdAt: Date;
+  updatedAt: Date;
 }

@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { EnkaService } from "src/enka/enka.service";
-import { AbstractUserRepository } from "src/user/infrastructure/persistance/abstract-repository/user.repository";
+import { AbstractUserRepository } from "src/user/infrastructure/persistence/abstract-repository/user.repository";
 
 @Injectable()
 export class UserService {
@@ -26,7 +26,6 @@ export class UserService {
       level: starRailUserData.level,
       nickname: starRailUserData.nickname,
       signature: starRailUserData.signature,
-      characters: [],
     });
   }
 }

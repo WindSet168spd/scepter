@@ -3,9 +3,10 @@ import { StatData } from "src/stat-data/domain/stat-data";
 
 export class SkillTreeNode {
   id: number;
-  previousNodeId: number;
-  characterId: number;
+  parentSkillTreeNodeId?: number | null;
   iconUrl: string;
-  stat?: StatData;
+  statData?: StatData | null;
   skillTreeNodeType: SkillTreeNodeType;
+  createdAt: Date;
+  updatedAt: Date;
 }

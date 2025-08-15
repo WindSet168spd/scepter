@@ -1,4 +1,4 @@
-import { Character } from "src/character/domain/character";
+import { UserCharacter } from "src/user-character/domain/user-character";
 
 export class User {
   uid: number;
@@ -9,5 +9,5 @@ export class User {
   signature: string;
   createdAt: Date;
   updatedAt: Date;
-  characters: Character[];
+  userCharacters?: UserCharacter[] | null;
 }

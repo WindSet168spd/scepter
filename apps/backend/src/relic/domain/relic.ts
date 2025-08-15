@@ -4,7 +4,9 @@ import { RelicPart } from "@scepter/utilities";
 
 export class Relic {
   id: number;
-  stats: StatData[];
-  set: RelicSet;
+  statsData?: StatData[] | null;
+  relicSet?: RelicSet | null;
   relicPart: RelicPart;
+  createdAt: Date;
+  updatedAt: Date;
 }
