@@ -1,10 +1,17 @@
 import { Module } from "@nestjs/common";
-import { EnkaService } from "src/enka/enka.service";
-import { StarRailModule } from "src/star-rail/star-rail.module";
+import { StarRail } from "starrail.js";
+
+export const ENKA = Symbol("enka-api");
 
 @Module({
-  imports: [StarRailModule],
-  providers: [EnkaService],
-  exports: [EnkaService],
+  providers: [
+    {
+      provide: ENKA,
+      useFactory: (): StarRail => {
+        return new StarRail();
+      },
+    },
+  ],
+  exports: [ENKA],
 })
 export class EnkaModule {}
