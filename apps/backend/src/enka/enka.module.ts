@@ -8,7 +8,16 @@ export const ENKA = Symbol("enka-api");
     {
       provide: ENKA,
       useFactory: (): StarRail => {
-        return new StarRail();
+        const enkaClient = new StarRail({
+          showFetchCacheLog: true,
+        });
+
+        enkaClient.cachedAssetsManager.activateAutoCacheUpdater({
+          instant: true,
+          timeout: 60 * 60 * 1000,
+        });
+
+        return enkaClient;
       },
     },
   ],
