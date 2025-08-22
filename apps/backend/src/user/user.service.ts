@@ -16,9 +16,7 @@ export class UserService {
 
     const starRailUserData = await this.honkaiStarRailApi.findUserByUid(uid);
 
-    console.dir(
-      starRailUserData.starfaringCompanions[1].characterData.skillTreeNodes,
-    );
+    console.dir(starRailUserData.starfaringCompanions[1].skillTreeNodes);
 
     return true;
     // return await this.usersRepository.create({
