@@ -14,10 +14,11 @@ export class UserMapper {
       createdAt: raw.createdAt,
       updatedAt: raw.updatedAt,
     };
-    if (raw.userCharacters)
+    if (raw.userCharacters) {
       domainEntity.userCharacters = raw.userCharacters.map((userCharacter) =>
         UserCharacterMapper.toDomain(userCharacter),
       );
+    }
     return domainEntity;
   }
 
@@ -32,10 +33,11 @@ export class UserMapper {
       createdAt: domainEntity.createdAt,
       updatedAt: domainEntity.updatedAt,
     };
-    if (domainEntity.userCharacters)
+    if (domainEntity.userCharacters) {
       persistenceEntity.userCharacters = domainEntity.userCharacters.map(
         (userCharacter) => UserCharacterMapper.toPersistence(userCharacter),
       );
+    }
     return persistenceEntity;
   }
 }

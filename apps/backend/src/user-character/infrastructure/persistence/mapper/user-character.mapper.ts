@@ -16,20 +16,26 @@ export class UserCharacterMapper {
       createdAt: raw.createdAt,
       updatedAt: raw.updatedAt,
     };
-    if (raw.user) domainEntity.user = UserMapper.toDomain(raw.user);
-    if (raw.lightcone)
+    if (raw.user) {
+      domainEntity.user = UserMapper.toDomain(raw.user);
+    }
+    if (raw.lightcone) {
       domainEntity.lightcone = LightconeMapper.toDomain(raw.lightcone);
-    if (raw.character)
+    }
+    if (raw.character) {
       domainEntity.character = CharacterMapper.toDomain(raw.character);
-    if (raw.relics)
+    }
+    if (raw.relics) {
       domainEntity.relics = raw.relics.map((relic) =>
         RelicMapper.toDomain(relic),
       );
-    if (raw.userCharacterSkillTreeNodes)
+    }
+    if (raw.userCharacterSkillTreeNodes) {
       domainEntity.skillTreeNodes = raw.userCharacterSkillTreeNodes.map(
         (skillTreeNode) =>
           UserCharacterSkillTreeNodeMapper.toDomain(skillTreeNode),
       );
+    }
     return domainEntity;
   }
 
@@ -42,25 +48,30 @@ export class UserCharacterMapper {
       createdAt: domainEntity.createdAt,
       updatedAt: domainEntity.updatedAt,
     };
-    if (domainEntity.user)
+    if (domainEntity.user) {
       persistenceEntity.user = UserMapper.toPersistence(domainEntity.user);
-    if (domainEntity.lightcone)
+    }
+    if (domainEntity.lightcone) {
       persistenceEntity.lightcone = LightconeMapper.toPersistence(
         domainEntity.lightcone,
       );
-    if (domainEntity.character)
+    }
+    if (domainEntity.character) {
       persistenceEntity.character = CharacterMapper.toPersistence(
         domainEntity.character,
       );
-    if (domainEntity.relics)
+    }
+    if (domainEntity.relics) {
       persistenceEntity.relics = domainEntity.relics.map((relic) =>
         RelicMapper.toPersistence(relic),
       );
-    if (domainEntity.skillTreeNodes)
+    }
+    if (domainEntity.skillTreeNodes) {
       persistenceEntity.userCharacterSkillTreeNodes =
         domainEntity.skillTreeNodes.map((skillTreeNode) =>
           UserCharacterSkillTreeNodeMapper.toPersistence(skillTreeNode),
         );
+    }
     return persistenceEntity;
   }
 }

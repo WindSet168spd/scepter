@@ -11,10 +11,12 @@ export class SkillTreeNodeMapper {
       createdAt: raw.createdAt,
       updatedAt: raw.updatedAt,
     };
-    if (raw.statData)
+    if (raw.statData) {
       domainEntity.statData = StatDataMapper.toDomain(raw.statData);
-    if (raw.parentSkillTreeNode)
+    }
+    if (raw.parentSkillTreeNode) {
       domainEntity.parentSkillTreeNodeId = raw.parentSkillTreeNode.id;
+    }
     return domainEntity;
   }
 
@@ -26,14 +28,16 @@ export class SkillTreeNodeMapper {
       createdAt: domainEntity.createdAt,
       updatedAt: domainEntity.updatedAt,
     };
-    if (domainEntity.statData)
+    if (domainEntity.statData) {
       persistenceEntity.statData = StatDataMapper.toPersistence(
         domainEntity.statData,
       );
-    if (domainEntity.parentSkillTreeNodeId)
+    }
+    if (domainEntity.parentSkillTreeNodeId) {
       persistenceEntity.parentSkillTreeNode = {
         id: domainEntity.parentSkillTreeNodeId,
       };
+    }
     return persistenceEntity;
   }
 }
