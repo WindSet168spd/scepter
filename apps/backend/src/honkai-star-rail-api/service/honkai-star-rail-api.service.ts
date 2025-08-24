@@ -1,7 +1,18 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { StarRail } from "starrail.js";
-import { AbstractHonkaiStarRailApiService } from "src/honkai-star-rail-api/abstract-service/honkai-star-rail-api.service";
+import { AbstractHonkaiStarRailApiService } from "src/honkai-star-rail-api/service/honkai-star-rail-api.interface";
 import { ENKA } from "src/enka/enka.module";
+import { ResultAsync, Result, err, ok } from "neverthrow";
+import {
+  HonkaiStarRailUserNotFoundError,
+  InvalidHonkaiStarRailUserError,
+  UnexpectedHonkaiStarRailApiError,
+} from "src/honkai-star-rail-api/honkai-star-rail-api.errors";
+import {
+  StarRailUserDto,
+  starRailUserSchema,
+} from "src/honkai-star-rail-api/dto/star-rail-user.dto";
+import { FindHonkaiStarRailUserByUidError } from "src/honkai-star-rail-api/honkai-star-rail-api.types";
 
 @Injectable()
 export class HonkaiStarRailApiService
@@ -9,7 +20,26 @@ export class HonkaiStarRailApiService
 {
   constructor(@Inject(ENKA) private readonly client: StarRail) {}
 
-  async findUserByUid(uid: number) {
-    return this.client.fetchUser(uid);
+  findUserByUid(
+    uid: number,
+  ): ResultAsync<StarRailUserDto, FindHonkaiStarRailUserByUidError> {
+    return ResultAsync.fromPromise(
+      this.client.fetchUser(uid),
+      () => new UnexpectedHonkaiStarRailApiError(),
+    ).andThen(
+      (
+        starRailUser,
+      ): Result<StarRailUserDto, FindHonkaiStarRailUserByUidError> => {
+        if (!starRailUser) {
+          return err(new HonkaiStarRailUserNotFoundError());
+        }
+        const validatedStarRailUser =
+          starRailUserSchema.safeParse(starRailUser);
+        if (!validatedStarRailUser.success) {
+          return err(new InvalidHonkaiStarRailUserError());
+        }
+        return ok(validatedStarRailUser.data);
+      },
+    );
   }
 }

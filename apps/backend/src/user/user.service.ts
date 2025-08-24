@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { AbstractHonkaiStarRailApiService } from "src/honkai-star-rail-api/abstract-service/honkai-star-rail-api.service";
+import { AbstractHonkaiStarRailApiService } from "src/honkai-star-rail-api/service/honkai-star-rail-api.interface";
 import { AbstractUserRepository } from "src/user/infrastructure/persistence/abstract-repository/user.repository";
 
 @Injectable()
@@ -14,9 +14,13 @@ export class UserService {
 
     // if (localUserData) return localUserData;
 
-    const starRailUserData = await this.honkaiStarRailApi.findUserByUid(uid);
+    const starRailUserResult = await this.honkaiStarRailApi.findUserByUid(uid);
 
-    console.dir(starRailUserData.starfaringCompanions[1].skillTreeNodes);
+    if (starRailUserResult.isOk()) {
+      console.dir(
+        starRailUserResult.value.starfaringCompanions[1].skillTreeNodes,
+      );
+    }
 
     return true;
     // return await this.usersRepository.create({
