@@ -3,7 +3,7 @@ import z from "zod";
 import { imageAssetSchema } from "src/honkai-star-rail-api/dto/image-asset.dto";
 
 export const combatTypeSchema = z.object({
-  id: z.int32(),
+  id: z.string(),
   name: textAssetsSchema,
   icon: imageAssetSchema,
 });

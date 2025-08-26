@@ -5,7 +5,7 @@ export const statPropertyValueSchema = z.object({
   isPercent: z.boolean(),
   value: z.number(),
   type: z.string(),
-  statPropery: statPropertySchema,
+  statPropery: statPropertySchema.nullable().optional(),
 });
 
 export type StatPropertyDto = z.infer<typeof statPropertySchema>;

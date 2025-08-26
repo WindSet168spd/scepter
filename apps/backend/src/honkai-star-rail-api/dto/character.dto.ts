@@ -11,9 +11,9 @@ export const characterSchema = z.object({
   level: z.int32(),
   eidolons: z.int32(),
   characterData: characterDataSchema,
-  costume: costumeSchema,
+  costume: costumeSchema.nullable(),
   basicStats: z.array(statPropertyValueSchema),
-  lightCone: lightconeSchema,
+  lightCone: lightconeSchema.nullable(),
   relics: z.array(relicSchema),
   skillTreeNodes: z.array(leveledSkillTreeNodeSchema),
 });
