@@ -1,12 +1,12 @@
 import z from "zod";
 import { imageAssetSchema } from "src/honkai-star-rail-api/dto/image-asset.dto";
-import { textAssetsSchema } from "src/utils/dto/text-assets.dto";
 import { pathSchema } from "src/honkai-star-rail-api/dto/path.dto";
+import { TextAssets } from "starrail.js";
 
 export const lightconeDataSchema = z.object({
   cardImage: imageAssetSchema,
   id: z.int32(),
-  name: textAssetsSchema,
+  name: z.instanceof(TextAssets),
   path: pathSchema,
   stars: z.int32(),
 });

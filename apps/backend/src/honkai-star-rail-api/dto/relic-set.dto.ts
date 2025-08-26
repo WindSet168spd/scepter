@@ -1,10 +1,10 @@
-import { textAssetsSchema } from "src/utils/dto/text-assets.dto";
 import z from "zod";
 import { imageAssetSchema } from "src/honkai-star-rail-api/dto/image-asset.dto";
 import { relicSetBonusSchema } from "src/honkai-star-rail-api/dto/relic-set-bonus.dto";
+import { TextAssets } from "starrail.js";
 
 export const relicSetSchema = z.object({
-  name: textAssetsSchema,
+  name: z.instanceof(TextAssets),
   id: z.int32(),
   icon: imageAssetSchema,
   setBonus: z.array(relicSetBonusSchema),

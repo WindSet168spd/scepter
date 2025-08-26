@@ -1,9 +1,9 @@
-import { textAssetsSchema } from "src/utils/dto/text-assets.dto";
 import z from "zod";
 import { imageAssetSchema } from "src/honkai-star-rail-api/dto/image-asset.dto";
+import { TextAssets } from "starrail.js";
 
 export const pathSchema = z.object({
   id: z.string(),
-  name: textAssetsSchema,
+  name: z.instanceof(TextAssets),
   icon: imageAssetSchema,
 });
