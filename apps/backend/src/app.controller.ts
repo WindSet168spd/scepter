@@ -11,7 +11,7 @@ export class AppController {
     this.client = new StarRail();
   }
 
-  @Get()
+  @Get("api/v1/")
   async getUser(@Query("uid") uid: number): Promise<ScepterChar[]> {
     const user = await this.client.fetchUser(uid);
     const allChars = [...user.supportCharacters, ...user.starfaringCompanions];
@@ -21,6 +21,8 @@ export class AppController {
       const newChar = this.createChar(char);
       response.push(newChar);
     }
+
+    console.log("rofl");
 
     return response as ScepterChar[];
   }
