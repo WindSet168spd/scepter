@@ -17,11 +17,7 @@ const UserPage = () => {
       setLoading(false);
     };
 
-    initialRequest();
-
-    // return () => {
-    //   ignore = true;
-    // };
+    if (isLoading) initialRequest();
   }, []);
 
   if (isLoading) {
