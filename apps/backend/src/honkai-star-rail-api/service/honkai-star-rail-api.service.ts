@@ -31,7 +31,7 @@ export class HonkaiStarRailApiService
         starRailUser,
       ): Result<StarRailUserDto, FindHonkaiStarRailUserByUidError> => {
         if (!starRailUser) {
-          return err(new HonkaiStarRailUserNotFoundError());
+          return err(new HonkaiStarRailUserNotFoundError({ id: uid }));
         }
         const validatedStarRailUser =
           starRailUserSchema.safeParse(starRailUser);

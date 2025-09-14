@@ -10,10 +10,10 @@ const baseSchema = z.object({
   DATABASE_NAME: z.string().optional(),
   DATABASE_USERNAME: z.string().optional(),
 
-  DATABASE_SYNCHRONIZE: z.coerce.boolean().optional(),
+  DATABASE_SYNCHRONIZE: z.string().optional(),
   DATABASE_MAX_CONNECTIONS: z.coerce.number().int().optional(),
-  DATABASE_SSL_ENABLED: z.coerce.boolean().optional(),
-  DATABASE_REJECT_UNAUTHORIZED: z.coerce.boolean().optional(),
+  DATABASE_SSL_ENABLED: z.string().optional(),
+  DATABASE_REJECT_UNAUTHORIZED: z.string().optional(),
 
   DATABASE_CA: z.string().optional(),
   DATABASE_KEY: z.string().optional(),

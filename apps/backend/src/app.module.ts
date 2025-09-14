@@ -15,7 +15,10 @@ import { HonkaiStarRailApiModule } from "src/honkai-star-rail-api/honkai-star-ra
     EnkaModule,
     TypeOrmModule.forRootAsync({
       useClass: TypeOrmConfigService,
-      dataSourceFactory: async (options: DataSourceOptions) => {
+      dataSourceFactory: async (options?: DataSourceOptions) => {
+        if (!options) {
+          throw new Error("No DataSourceOptions");
+        }
         return new DataSource(options).initialize();
       },
     }),

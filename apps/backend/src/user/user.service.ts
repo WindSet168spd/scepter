@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { err, ok } from "neverthrow";
+import { ok } from "neverthrow";
 import { StarRailUserDto } from "src/honkai-star-rail-api/dto/star-rail-user.dto";
 import { AbstractHonkaiStarRailApiService } from "src/honkai-star-rail-api/service/honkai-star-rail-api.interface";
 import { AbstractUserRepository } from "src/user/infrastructure/persistence/abstract-repository/user.repository";
@@ -15,7 +15,6 @@ export class UserService {
     return this.honkaiStarRailApi
       .findUserByUid(uid)
       .andThen((starRailUserDto: StarRailUserDto) => {
-        return err(new Error("fuck"));
         console.dir(starRailUserDto);
         return ok(true);
       });
