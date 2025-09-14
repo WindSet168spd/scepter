@@ -6,7 +6,9 @@ export class UnexpectedHonkaiStarRailApiError extends TaggedError(
 
 export class HonkaiStarRailUserNotFoundError extends TaggedError(
   "HonkaiStarRailUserNotFoundError",
-) {}
+)<{
+  id: number;
+}> {}
 
 export class InvalidHonkaiStarRailUserError extends TaggedError(
   "InvalidHonkaiStarRailUserError",
