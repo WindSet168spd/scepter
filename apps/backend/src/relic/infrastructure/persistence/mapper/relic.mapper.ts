@@ -11,12 +11,14 @@ export class RelicMapper {
       createdAt: raw.createdAt,
       updatedAt: raw.updatedAt,
     };
-    if (raw.relicSet)
+    if (raw.relicSet) {
       domainEntity.relicSet = RelicSetMapper.toDomain(raw.relicSet);
-    if (raw.statsData)
+    }
+    if (raw.statsData) {
       domainEntity.statsData = raw.statsData.map((statData) =>
         StatDataMapper.toDomain(statData),
       );
+    }
     return domainEntity;
   }
 
@@ -27,14 +29,16 @@ export class RelicMapper {
       createdAt: domainEntity.createdAt,
       updatedAt: domainEntity.updatedAt,
     };
-    if (domainEntity.relicSet)
+    if (domainEntity.relicSet) {
       persistenceEntity.relicSet = RelicSetMapper.toPersistence(
         domainEntity.relicSet,
       );
-    if (domainEntity.statsData)
+    }
+    if (domainEntity.statsData) {
       persistenceEntity.statsData = domainEntity.statsData.map((statData) =>
         StatDataMapper.toPersistence(statData),
       );
+    }
     return persistenceEntity;
   }
 }

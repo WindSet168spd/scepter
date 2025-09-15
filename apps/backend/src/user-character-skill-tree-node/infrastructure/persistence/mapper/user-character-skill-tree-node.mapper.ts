@@ -13,14 +13,16 @@ export class UserCharacterSkillTreeNodeMapper {
       createdAt: raw.createdAt,
       updatedAt: raw.updatedAt,
     };
-    if (raw.userCharacter)
+    if (raw.userCharacter) {
       domainEntity.userCharacter = UserCharacterMapper.toDomain(
         raw.userCharacter,
       );
-    if (raw.skillTreeNode)
+    }
+    if (raw.skillTreeNode) {
       domainEntity.skillTreeNode = SkillTreeNodeMapper.toDomain(
         raw.skillTreeNode,
       );
+    }
     return domainEntity;
   }
 
@@ -33,14 +35,16 @@ export class UserCharacterSkillTreeNodeMapper {
       createdAt: domainEntity.createdAt,
       updatedAt: domainEntity.updatedAt,
     };
-    if (domainEntity.userCharacter)
+    if (domainEntity.userCharacter) {
       persistenceEntity.userCharacter = UserCharacterMapper.toPersistence(
         domainEntity.userCharacter,
       );
-    if (domainEntity.skillTreeNode)
+    }
+    if (domainEntity.skillTreeNode) {
       persistenceEntity.skillTreeNode = SkillTreeNodeMapper.toPersistence(
         domainEntity.skillTreeNode,
       );
+    }
     return persistenceEntity;
   }
 }

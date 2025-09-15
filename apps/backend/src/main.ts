@@ -4,11 +4,16 @@ import { ConfigService } from "@nestjs/config";
 import { AllConfigType } from "src/config/config.type";
 import { VersioningType } from "@nestjs/common";
 import * as bodyParser from "body-parser";
+import { ResultFilter } from "src/utils/filters/result.filter";
+import { ResultInterceptor } from "src/utils/interceptors/result.interceptor";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const configService = app.get(ConfigService<AllConfigType>);
+
+  app.useGlobalInterceptors(new ResultInterceptor());
+  app.useGlobalFilters(new ResultFilter());
 
   app.setGlobalPrefix(
     configService.getOrThrow("app.globalPrefix", { infer: true }),
@@ -34,4 +39,4 @@ async function bootstrap() {
     configService.getOrThrow("app.backendPort", { infer: true }),
   );
 }
-bootstrap();
+void bootstrap();

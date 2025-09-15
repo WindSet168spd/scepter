@@ -1,31 +1,22 @@
 import { Injectable } from "@nestjs/common";
-import { EnkaService } from "src/enka/enka.service";
+import { ok } from "neverthrow";
+import { StarRailUserDto } from "src/honkai-star-rail-api/dto/star-rail-user.dto";
+import { AbstractHonkaiStarRailApiService } from "src/honkai-star-rail-api/service/honkai-star-rail-api.interface";
 import { AbstractUserRepository } from "src/user/infrastructure/persistence/abstract-repository/user.repository";
 
 @Injectable()
 export class UserService {
   constructor(
-    private readonly enkaService: EnkaService,
     private readonly usersRepository: AbstractUserRepository,
+    private readonly honkaiStarRailApi: AbstractHonkaiStarRailApiService,
   ) {}
 
-  async findByUid(uid: number) {
-    // const localUserData = await this.usersRepository.findByUid(uid);
-
-    // if (localUserData) return localUserData;
-
-    const starRailUserData = await this.enkaService.findUserByUid(uid);
-
-    console.dir(starRailUserData.supportCharacters[0].stats.characterStats);
-
-    return true;
-    return await this.usersRepository.create({
-      uid: starRailUserData.uid,
-      achievementCount: starRailUserData.achievementCount,
-      icon: starRailUserData.icon.icon.url,
-      level: starRailUserData.level,
-      nickname: starRailUserData.nickname,
-      signature: starRailUserData.signature,
-    });
+  findByUid(uid: number) {
+    return this.honkaiStarRailApi
+      .findUserByUid(uid)
+      .andThen((starRailUserDto: StarRailUserDto) => {
+        console.dir(starRailUserDto);
+        return ok(true);
+      });
   }
 }

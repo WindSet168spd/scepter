@@ -1,7 +1,6 @@
 import { Controller, Get, HttpCode, HttpStatus, Param } from "@nestjs/common";
-import { NullableType } from "@scepter/utilities";
 import { User } from "src/user/domain/user";
-import { UserService } from "./user.service";
+import { UserService } from "src/user/user.service";
 
 @Controller("user")
 export class UserController {
@@ -9,7 +8,7 @@ export class UserController {
 
   @Get(":uid")
   @HttpCode(HttpStatus.OK)
-  findOne(@Param("uid") id: User["uid"]): Promise<NullableType<unknown>> {
+  findOne(@Param("uid") id: User["uid"]) {
     return this.usersService.findByUid(id);
   }
 }
