@@ -13,11 +13,14 @@ export class LightconeMapper {
       createdAt: raw.createdAt,
       updatedAt: raw.updatedAt,
     };
-    if (raw.path) domainEntity.path = PathMapper.toDomain(raw.path);
-    if (raw.statsData)
+    if (raw.path) {
+      domainEntity.path = PathMapper.toDomain(raw.path);
+    }
+    if (raw.statsData) {
       domainEntity.statsData = raw.statsData.map((statData) =>
         StatDataMapper.toDomain(statData),
       );
+    }
     return domainEntity;
   }
 
@@ -30,12 +33,14 @@ export class LightconeMapper {
       createdAt: domainEntity.createdAt,
       updatedAt: domainEntity.updatedAt,
     };
-    if (domainEntity.path)
+    if (domainEntity.path) {
       persistenceEntity.path = PathMapper.toPersistence(domainEntity.path);
-    if (domainEntity.statsData)
+    }
+    if (domainEntity.statsData) {
       persistenceEntity.statsData = domainEntity.statsData.map((statData) =>
         StatDataMapper.toPersistence(statData),
       );
+    }
     return persistenceEntity;
   }
 }

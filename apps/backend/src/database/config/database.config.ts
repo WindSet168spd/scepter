@@ -3,26 +3,28 @@ import { databaseEnvironmentVariablesSchema } from "src/database/config/database
 import { DatabaseConfig } from "src/database/config/database-config.type";
 
 export default registerAs<DatabaseConfig>("database", () => {
-  databaseEnvironmentVariablesSchema.parse(process.env);
+  const parsedDatabaseEnvironmentVariables =
+    databaseEnvironmentVariablesSchema.parse(process.env);
 
   return {
-    url: process.env.DATABASE_URL,
-    type: process.env.DATABASE_TYPE,
-    host: process.env.DATABASE_HOST,
-    port: process.env.DATABASE_PORT
-      ? parseInt(process.env.DATABASE_PORT, 10)
-      : 5432,
-    password: process.env.DATABASE_PASSWORD,
-    name: process.env.DATABASE_NAME,
-    username: process.env.DATABASE_USERNAME,
-    synchronize: process.env.DATABASE_SYNCHRONIZE === "true",
-    maxConnections: process.env.DATABASE_MAX_CONNECTIONS
-      ? parseInt(process.env.DATABASE_MAX_CONNECTIONS, 10)
-      : 100,
-    sslEnabled: process.env.DATABASE_SSL_ENABLED === "true",
-    rejectUnauthorized: process.env.DATABASE_REJECT_UNAUTHORIZED === "true",
-    ca: process.env.DATABASE_CA,
-    key: process.env.DATABASE_KEY,
-    cert: process.env.DATABASE_CERT,
+    url: parsedDatabaseEnvironmentVariables.DATABASE_URL,
+    type: parsedDatabaseEnvironmentVariables.DATABASE_TYPE,
+    host: parsedDatabaseEnvironmentVariables.DATABASE_HOST,
+    port: parsedDatabaseEnvironmentVariables.DATABASE_PORT ?? 5432,
+    password: parsedDatabaseEnvironmentVariables.DATABASE_PASSWORD,
+    name: parsedDatabaseEnvironmentVariables.DATABASE_NAME,
+    username: parsedDatabaseEnvironmentVariables.DATABASE_USERNAME,
+    synchronize:
+      parsedDatabaseEnvironmentVariables.DATABASE_SYNCHRONIZE === "true",
+    maxConnections:
+      parsedDatabaseEnvironmentVariables.DATABASE_MAX_CONNECTIONS ?? 100,
+    sslEnabled:
+      parsedDatabaseEnvironmentVariables.DATABASE_SSL_ENABLED === "true",
+    rejectUnauthorized:
+      parsedDatabaseEnvironmentVariables.DATABASE_REJECT_UNAUTHORIZED ===
+      "true",
+    ca: parsedDatabaseEnvironmentVariables.DATABASE_CA,
+    key: parsedDatabaseEnvironmentVariables.DATABASE_KEY,
+    cert: parsedDatabaseEnvironmentVariables.DATABASE_CERT,
   };
 });

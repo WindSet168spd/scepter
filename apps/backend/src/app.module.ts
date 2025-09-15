@@ -7,14 +7,18 @@ import { DataSource, DataSourceOptions } from "typeorm";
 import databaseConfig from "src/database/config/database.config";
 import { EnkaModule } from "src/enka/enka.module";
 import { UserModule } from "src/user/user.module";
-import { CharacterModule } from "./character/character.module";
+import { CharacterModule } from "src/character/character.module";
+import { HonkaiStarRailApiModule } from "src/honkai-star-rail-api/honkai-star-rail-api.module";
 
 @Module({
   imports: [
     EnkaModule,
     TypeOrmModule.forRootAsync({
       useClass: TypeOrmConfigService,
-      dataSourceFactory: async (options: DataSourceOptions) => {
+      dataSourceFactory: async (options?: DataSourceOptions) => {
+        if (!options) {
+          throw new Error("No DataSourceOptions");
+        }
         return new DataSource(options).initialize();
       },
     }),
@@ -25,6 +29,7 @@ import { CharacterModule } from "./character/character.module";
     }),
     UserModule,
     CharacterModule,
+    HonkaiStarRailApiModule,
   ],
   controllers: [],
   providers: [],

@@ -12,7 +12,9 @@ export class StatDataMapper {
       createdAt: raw.createdAt,
       updatedAt: raw.updatedAt,
     };
-    if (raw.stat) domainEntity.stat = StatMapper.toDomain(raw.stat);
+    if (raw.stat) {
+      domainEntity.stat = StatMapper.toDomain(raw.stat);
+    }
     return domainEntity;
   }
 
@@ -25,8 +27,9 @@ export class StatDataMapper {
       createdAt: domainEntity.createdAt,
       updatedAt: domainEntity.updatedAt,
     };
-    if (domainEntity.stat)
+    if (domainEntity.stat) {
       persistenceEntity.stat = StatMapper.toPersistence(domainEntity.stat);
+    }
     return persistenceEntity;
   }
 }
