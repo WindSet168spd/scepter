@@ -9,6 +9,7 @@ export class StatDataMapper {
       value: raw.value,
       isPercent: raw.isPercent,
       type: raw.type,
+      attribute: raw.attribute,
       createdAt: raw.createdAt,
       updatedAt: raw.updatedAt,
     };
@@ -24,6 +25,7 @@ export class StatDataMapper {
       value: domainEntity.value,
       isPercent: domainEntity.isPercent,
       type: domainEntity.type,
+      attribute: domainEntity.attribute,
       createdAt: domainEntity.createdAt,
       updatedAt: domainEntity.updatedAt,
     };

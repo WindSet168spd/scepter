@@ -6,6 +6,7 @@ export class StatMapper {
     const domainEntity: Stat = {
       id: raw.id,
       name: raw.name,
+      type: raw.type,
       iconUrl: raw.iconUrl,
       createdAt: raw.createdAt,
       updatedAt: raw.updatedAt,
@@ -17,6 +18,7 @@ export class StatMapper {
     const persistenceEntity: StatEntity = {
       id: domainEntity.id,
       name: domainEntity.name,
+      type: domainEntity.type,
       iconUrl: domainEntity.iconUrl,
       createdAt: domainEntity.createdAt,
       updatedAt: domainEntity.updatedAt,

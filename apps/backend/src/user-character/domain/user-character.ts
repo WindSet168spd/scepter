@@ -1,14 +1,16 @@
 import { Character } from "src/character/domain/character";
-import { Lightcone } from "src/lightcone/domain/lightcone";
 import { Relic } from "src/relic/domain/relic";
+import { StatData } from "src/stat-data/domain/stat-data";
 import { UserCharacterSkillTreeNode } from "src/user-character-skill-tree-node/domain/user-character-skill-tree-node";
+import { UserLightcone } from "src/user-lightcone/domain/user-lightconde";
 import { User } from "src/user/domain/user";
 
 export class UserCharacter {
-  id: number;
+  id: string;
   character?: Character | null;
   user?: User | null;
-  lightcone?: Lightcone | null;
+  userLightcone?: UserLightcone | null;
+  statsData?: StatData[];
   relics?: Relic[];
   costume?: string;
   level: number;

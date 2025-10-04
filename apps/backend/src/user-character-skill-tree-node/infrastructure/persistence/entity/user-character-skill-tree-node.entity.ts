@@ -14,8 +14,8 @@ import {
   name: "user_character_skill_tree_node",
 })
 export class UserCharacterSkillTreeNodeEntity {
-  @PrimaryColumn()
-  id: number;
+  @PrimaryColumn({ type: "uuid" })
+  id: string;
 
   @Column({ type: "int2" })
   level: number;

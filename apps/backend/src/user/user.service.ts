@@ -1,8 +1,9 @@
 import { Injectable } from "@nestjs/common";
 import { ok } from "neverthrow";
-import { StarRailUserDto } from "src/honkai-star-rail-api/dto/star-rail-user.dto";
+import { OmitTimestamps } from "src/honkai-star-rail-api/honkai-star-rail-api.types";
 import { AbstractHonkaiStarRailApiService } from "src/honkai-star-rail-api/service/honkai-star-rail-api.interface";
 import { AbstractUserRepository } from "src/user/infrastructure/persistence/abstract-repository/user.repository";
+import { User } from "src/user/domain/user";
 
 @Injectable()
 export class UserService {
@@ -14,9 +15,8 @@ export class UserService {
   findByUid(uid: number) {
     return this.honkaiStarRailApi
       .findUserByUid(uid)
-      .andThen((starRailUserDto: StarRailUserDto) => {
-        console.dir(starRailUserDto);
-        return ok(true);
+      .andThen((user: OmitTimestamps<User>) => {
+        return ok(user);
       });
   }
 }

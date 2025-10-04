@@ -1,5 +1,5 @@
 export class Path {
-  id: number;
+  id: string;
   name: string;
   iconUrl: string;
   createdAt: Date;

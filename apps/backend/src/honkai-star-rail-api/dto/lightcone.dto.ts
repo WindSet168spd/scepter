@@ -9,6 +9,7 @@ export const lightconeSchema = z.object({
   extraStats: z.array(statPropertyValueSchema),
   lightConeData: lightconeDataSchema,
   superimposition: lightconeSuperimpositionSchema,
+  ascension: z.int32(),
 });
 
 export type LightconeDto = z.infer<typeof lightconeSchema>;

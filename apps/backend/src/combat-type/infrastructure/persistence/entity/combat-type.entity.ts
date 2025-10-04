@@ -8,8 +8,8 @@ import {
 
 @Entity({ name: "combat_type" })
 export class CombatTypeEntity {
-  @PrimaryColumn()
-  id: number;
+  @PrimaryColumn({ type: "varchar", length: 40 })
+  id: string;
 
   @Column({ type: "varchar", length: 40 })
   name: string;
