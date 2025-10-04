@@ -8,11 +8,13 @@ import {
   InvalidHonkaiStarRailUserError,
   UnexpectedHonkaiStarRailApiError,
 } from "src/honkai-star-rail-api/honkai-star-rail-api.errors";
+import { starRailUserSchema } from "src/honkai-star-rail-api/dto/star-rail-user.dto";
 import {
-  StarRailUserDto,
-  starRailUserSchema,
-} from "src/honkai-star-rail-api/dto/star-rail-user.dto";
-import { FindHonkaiStarRailUserByUidError } from "src/honkai-star-rail-api/honkai-star-rail-api.types";
+  FindHonkaiStarRailUserByUidError,
+  OmitTimestamps,
+} from "src/honkai-star-rail-api/honkai-star-rail-api.types";
+import { HonkaiStarRailApiMapper } from "../mappers/honkai-star-rail-api.mapper";
+import { User } from "src/user/domain/user";
 
 @Injectable()
 export class HonkaiStarRailApiService
@@ -22,14 +24,14 @@ export class HonkaiStarRailApiService
 
   findUserByUid(
     uid: number,
-  ): ResultAsync<StarRailUserDto, FindHonkaiStarRailUserByUidError> {
+  ): ResultAsync<OmitTimestamps<User>, FindHonkaiStarRailUserByUidError> {
     return ResultAsync.fromPromise(
       this.client.fetchUser(uid),
       () => new UnexpectedHonkaiStarRailApiError(),
     ).andThen(
       (
         starRailUser,
-      ): Result<StarRailUserDto, FindHonkaiStarRailUserByUidError> => {
+      ): Result<OmitTimestamps<User>, FindHonkaiStarRailUserByUidError> => {
         if (!starRailUser) {
           return err(new HonkaiStarRailUserNotFoundError({ id: uid }));
         }
@@ -38,7 +40,11 @@ export class HonkaiStarRailApiService
         if (!validatedStarRailUser.success) {
           return err(new InvalidHonkaiStarRailUserError());
         }
-        return ok(validatedStarRailUser.data);
+
+        const domainStarRailUser = HonkaiStarRailApiMapper.toDomainUser(
+          validatedStarRailUser.data,
+        );
+        return ok(domainStarRailUser);
       },
     );
   }

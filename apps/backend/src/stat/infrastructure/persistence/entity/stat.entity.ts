@@ -8,8 +8,11 @@ import {
 
 @Entity({ name: "stat" })
 export class StatEntity {
-  @PrimaryColumn()
-  id: number;
+  @PrimaryColumn({ type: "uuid" })
+  id: string;
+
+  @Column({ type: "varchar", length: 40 })
+  type: string;
 
   @Column({ type: "varchar", length: 40 })
   name: string;

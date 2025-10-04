@@ -3,7 +3,7 @@ import { StatData } from "src/stat-data/domain/stat-data";
 import { RelicPart } from "@scepter/utilities";
 
 export class Relic {
-  id: number;
+  id: string;
   statsData?: StatData[] | null;
   relicSet?: RelicSet | null;
   relicPart: RelicPart;

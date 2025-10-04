@@ -1,5 +1,6 @@
 export class Stat {
-  id: number;
+  id: string;
+  type: string;
   name: string;
   iconUrl: string;
   createdAt: Date;

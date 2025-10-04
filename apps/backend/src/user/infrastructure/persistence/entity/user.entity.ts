@@ -29,8 +29,8 @@ export class UserEntity {
   @Column({ type: "varchar", length: 14 })
   nickname: string;
 
-  @Column({ type: "text" })
-  signature: string;
+  @Column({ type: "text", nullable: true })
+  signature: string | null;
 
   @OneToMany(
     () => UserCharacterEntity,

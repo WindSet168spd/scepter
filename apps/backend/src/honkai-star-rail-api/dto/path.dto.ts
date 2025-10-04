@@ -7,3 +7,5 @@ export const pathSchema = z.object({
   name: z.instanceof(TextAssets),
   icon: imageAssetSchema,
 });
+
+export type PathDto = z.infer<typeof pathSchema>;

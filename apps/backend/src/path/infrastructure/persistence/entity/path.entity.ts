@@ -8,8 +8,8 @@ import {
 
 @Entity({ name: "path" })
 export class PathEntity {
-  @PrimaryColumn()
-  id: number;
+  @PrimaryColumn({ type: "varchar", length: 40 })
+  id: string;
 
   @Column({ type: "varchar", length: 40 })
   name: string;

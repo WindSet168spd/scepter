@@ -1,7 +1,8 @@
 import { CharacterEntity } from "src/character/infrastructure/persistence/entity/character.entity";
-import { LightconeEntity } from "src/lightcone/infrastructure/persistence/entity/lightcone.entity";
 import { RelicEntity } from "src/relic/infrastructure/persistence/entity/relic.entity";
+import { StatDataEntity } from "src/stat-data/infrastructure/persistence/entity/stat-data.entity";
 import { UserCharacterSkillTreeNodeEntity } from "src/user-character-skill-tree-node/infrastructure/persistence/entity/user-character-skill-tree-node.entity";
+import { UserLightconeEntity } from "src/user-lightcone/infrastructure/persistence/entity/user-lightcone.entity";
 import { UserEntity } from "src/user/infrastructure/persistence/entity/user.entity";
 import {
   Column,
@@ -20,8 +21,8 @@ import {
   name: "user_character",
 })
 export class UserCharacterEntity {
-  @PrimaryColumn()
-  id: number;
+  @PrimaryColumn({ type: "uuid" })
+  id: string;
 
   @Column({ type: "varchar", length: 50, nullable: true })
   costume?: string;
@@ -46,12 +47,19 @@ export class UserCharacterEntity {
   })
   user?: UserEntity | null;
 
-  @ManyToOne(() => LightconeEntity)
+  @ManyToOne(
+    () => UserLightconeEntity,
+    (userLightcone) => userLightcone.userCharacter,
+    {
+      nullable: true,
+      onDelete: "CASCADE",
+    },
+  )
   @JoinColumn({
-    name: "lightcone_id",
+    name: "user_lightcone_id",
     referencedColumnName: "id",
   })
-  lightcone?: LightconeEntity | null;
+  userLightcone?: UserLightconeEntity | null;
 
   @JoinTable({
     name: "user_character_relic",
@@ -68,6 +76,22 @@ export class UserCharacterEntity {
     onDelete: "CASCADE",
   })
   relics?: RelicEntity[];
+
+  @JoinTable({
+    name: "user_character_stat_data",
+    joinColumn: {
+      name: "user_character_id",
+      referencedColumnName: "id",
+    },
+    inverseJoinColumn: {
+      name: "stat_data_id",
+      referencedColumnName: "id",
+    },
+  })
+  @ManyToMany(() => StatDataEntity, (statData) => statData.userCharacters, {
+    onDelete: "CASCADE",
+  })
+  statsData?: StatDataEntity[];
 
   @OneToMany(
     () => UserCharacterSkillTreeNodeEntity,
