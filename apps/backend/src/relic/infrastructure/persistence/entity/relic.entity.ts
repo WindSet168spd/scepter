@@ -17,8 +17,8 @@ import {
   name: "relic",
 })
 export class RelicEntity {
-  @PrimaryColumn()
-  id: number;
+  @PrimaryColumn({ type: "uuid" })
+  id: string;
 
   @Column({ name: "relic_part", type: "int2" })
   relicPart: RelicPart;

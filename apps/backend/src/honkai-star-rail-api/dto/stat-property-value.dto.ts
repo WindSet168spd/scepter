@@ -8,4 +8,4 @@ export const statPropertyValueSchema = z.object({
   statPropery: statPropertySchema.nullable().optional(),
 });
 
-export type StatPropertyDto = z.infer<typeof statPropertySchema>;
+export type StatPropertyValueDto = z.infer<typeof statPropertyValueSchema>;

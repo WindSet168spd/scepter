@@ -6,7 +6,7 @@ export class User {
   icon: string;
   level: number;
   nickname: string;
-  signature: string;
+  signature: string | null;
   createdAt: Date;
   updatedAt: Date;
   userCharacters?: UserCharacter[] | null;

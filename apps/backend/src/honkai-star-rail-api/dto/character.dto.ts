@@ -5,6 +5,7 @@ import { statPropertyValueSchema } from "src/honkai-star-rail-api/dto/stat-prope
 import { costumeSchema } from "src/honkai-star-rail-api/dto/costume.dto";
 import { lightconeSchema } from "src/honkai-star-rail-api/dto/lightcone.dto";
 import { relicSchema } from "src/honkai-star-rail-api/dto/relic.dto";
+import { characterStatsSchema } from "src/honkai-star-rail-api/dto/character-stats.dto";
 
 export const characterSchema = z.object({
   ascension: z.int32(),
@@ -16,6 +17,7 @@ export const characterSchema = z.object({
   lightCone: lightconeSchema.nullable(),
   relics: z.array(relicSchema),
   skillTreeNodes: z.array(leveledSkillTreeNodeSchema),
+  stats: characterStatsSchema,
 });
 
 export type CharacterDto = z.infer<typeof characterSchema>;
