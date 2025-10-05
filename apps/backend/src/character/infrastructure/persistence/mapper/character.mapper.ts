@@ -1,4 +1,4 @@
-import { Character } from "src/character/domain/character";
+import { Character } from "@scepter/domains";
 import { CharacterEntity } from "src/character/infrastructure/persistence/entity/character.entity";
 import { CombatTypeMapper } from "src/combat-type/infrastructure/persistence/mapper/combat-type.mapper";
 import { EidolonMapper } from "src/eidolon/infrastructure/persistence/mapper/eidolon.mapper";

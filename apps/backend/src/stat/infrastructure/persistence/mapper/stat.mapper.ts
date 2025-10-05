@@ -1,4 +1,4 @@
-import { Stat } from "src/stat/domain/stat";
+import { Stat } from "@scepter/domains";
 import { StatEntity } from "src/stat/infrastructure/persistence/entity/stat.entity";
 
 export class StatMapper {

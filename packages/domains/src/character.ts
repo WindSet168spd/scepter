@@ -1,8 +1,8 @@
-import { CombatType } from "src/combat-type/domain/combat-type";
-import { Eidolon } from "src/eidolon/domain/eidolon";
-import { Path } from "src/path/domain/path";
-import { SkillTreeNode } from "src/skill-tree-node/domain/skill-tree-node";
-import { StatData } from "src/stat-data/domain/stat-data";
+import { CombatType } from "./combat-type";
+import { Eidolon } from "./eidolon";
+import { Path } from "./path";
+import { SkillTreeNode } from "./skill-tree-node";
+import { StatData } from "./stat-data";
 
 export class Character {
   id: number;

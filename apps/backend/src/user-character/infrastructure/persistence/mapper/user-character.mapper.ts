@@ -2,7 +2,7 @@ import { CharacterMapper } from "src/character/infrastructure/persistence/mapper
 import { RelicMapper } from "src/relic/infrastructure/persistence/mapper/relic.mapper";
 import { StatDataMapper } from "src/stat-data/infrastructure/persistence/mapper/stat-data.mapper";
 import { UserCharacterSkillTreeNodeMapper } from "src/user-character-skill-tree-node/infrastructure/persistence/mapper/user-character-skill-tree-node.mapper";
-import { UserCharacter } from "src/user-character/domain/user-character";
+import { UserCharacter } from "@scepter/domains";
 import { UserCharacterEntity } from "src/user-character/infrastructure/persistence/entity/user-character.entity";
 import { UserLightconeMapper } from "src/user-lightcone/infrastructure/persistence/mapper/user-lightcone.mapper";
 import { UserMapper } from "src/user/infrastructure/persistence/mapper/user.mapper";

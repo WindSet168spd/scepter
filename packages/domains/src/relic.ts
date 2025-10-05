@@ -1,5 +1,5 @@
-import { RelicSet } from "src/relic-set/domain/relic-set";
-import { StatData } from "src/stat-data/domain/stat-data";
+import { RelicSet } from "./relic-set";
+import { StatData } from "./stat-data";
 import { RelicPart } from "@scepter/utilities";
 
 export class Relic {

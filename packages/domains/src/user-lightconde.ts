@@ -1,5 +1,5 @@
-import { Lightcone } from "src/lightcone/domain/lightcone";
-import { UserCharacter } from "src/user-character/domain/user-character";
+import { Lightcone } from "./lightcone";
+import { UserCharacter } from "./user-character";
 
 export class UserLightcone {
   id: string;

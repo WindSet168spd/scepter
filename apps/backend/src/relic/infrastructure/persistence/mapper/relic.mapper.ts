@@ -1,5 +1,5 @@
 import { RelicSetMapper } from "src/relic-set/infrastructure/persistence/mapper/relic-set.mapper";
-import { Relic } from "src/relic/domain/relic";
+import { Relic } from "@scepter/domains";
 import { RelicEntity } from "src/relic/infrastructure/persistence/entity/relic.entity";
 import { StatDataMapper } from "src/stat-data/infrastructure/persistence/mapper/stat-data.mapper";
 

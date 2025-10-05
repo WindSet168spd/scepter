@@ -1,5 +1,5 @@
 import { NullableType } from "@scepter/utilities";
-import { User } from "src/user/domain/user";
+import { User } from "@scepter/domains";
 
 export abstract class AbstractUserRepository {
   abstract create(

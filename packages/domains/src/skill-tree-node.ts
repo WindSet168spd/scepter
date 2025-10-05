@@ -1,5 +1,5 @@
 import { SkillTreeNodeType } from "@scepter/utilities";
-import { StatData } from "src/stat-data/domain/stat-data";
+import { StatData } from "./stat-data";
 
 export class SkillTreeNode {
   id: number;

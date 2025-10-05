@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { ResultAsync } from "neverthrow";
-import { User } from "src/user/domain/user";
+import { User } from "@scepter/domains";
 import {
   FindHonkaiStarRailUserByUidError,
   OmitTimestamps,

@@ -1,5 +1,5 @@
 import { RelicSetEntity } from "src/relic-set/infrastructure/persistence/entity/relic-set.entity";
-import { RelicSet } from "src/relic-set/domain/relic-set";
+import { RelicSet } from "@scepter/domains";
 import { StatDataMapper } from "src/stat-data/infrastructure/persistence/mapper/stat-data.mapper";
 
 export class RelicSetMapper {

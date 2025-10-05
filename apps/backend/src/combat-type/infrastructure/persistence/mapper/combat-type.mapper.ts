@@ -1,4 +1,4 @@
-import { CombatType } from "src/combat-type/domain/combat-type";
+import { CombatType } from "@scepter/domains";
 import { CombatTypeEntity } from "src/combat-type/infrastructure/persistence/entity/combat-type.entity";
 
 export class CombatTypeMapper {
