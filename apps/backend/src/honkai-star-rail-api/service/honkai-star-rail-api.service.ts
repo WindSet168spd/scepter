@@ -13,8 +13,8 @@ import {
   FindHonkaiStarRailUserByUidError,
   OmitTimestamps,
 } from "src/honkai-star-rail-api/honkai-star-rail-api.types";
-import { HonkaiStarRailApiMapper } from "../mappers/honkai-star-rail-api.mapper";
-import { User } from "src/user/domain/user";
+import { HonkaiStarRailApiMapper } from "src/honkai-star-rail-api/mappers/honkai-star-rail-api.mapper";
+import { User } from "@scepter/domains";
 
 @Injectable()
 export class HonkaiStarRailApiService
