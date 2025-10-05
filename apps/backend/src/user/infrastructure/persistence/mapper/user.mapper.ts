@@ -1,5 +1,5 @@
 import { UserCharacterMapper } from "src/user-character/infrastructure/persistence/mapper/user-character.mapper";
-import { User } from "src/user/domain/user";
+import { User } from "@scepter/domains";
 import { UserEntity } from "src/user/infrastructure/persistence/entity/user.entity";
 
 export class UserMapper {

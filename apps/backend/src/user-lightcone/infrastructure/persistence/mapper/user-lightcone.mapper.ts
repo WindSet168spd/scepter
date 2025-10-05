@@ -1,6 +1,6 @@
 import { LightconeMapper } from "src/lightcone/infrastructure/persistence/mapper/lightcone.mapper";
 import { UserCharacterMapper } from "src/user-character/infrastructure/persistence/mapper/user-character.mapper";
-import { UserLightcone } from "src/user-lightcone/domain/user-lightconde";
+import { UserLightcone } from "@scepter/domains";
 import { UserLightconeEntity } from "src/user-lightcone/infrastructure/persistence/entity/user-lightcone.entity";
 
 export class UserLightconeMapper {

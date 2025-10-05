@@ -1,5 +1,5 @@
 import { StatType } from "@scepter/utilities";
-import { Stat } from "src/stat/domain/stat";
+import { Stat } from "./stat";
 
 export class StatData {
   id: string;

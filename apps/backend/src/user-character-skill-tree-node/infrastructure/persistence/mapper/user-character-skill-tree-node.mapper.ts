@@ -1,5 +1,5 @@
 import { SkillTreeNodeMapper } from "src/skill-tree-node/infrastructure/persistence/mapper/skill-tree-node.mapper";
-import { UserCharacterSkillTreeNode } from "src/user-character-skill-tree-node/domain/user-character-skill-tree-node";
+import { UserCharacterSkillTreeNode } from "@scepter/domains";
 import { UserCharacterSkillTreeNodeEntity } from "src/user-character-skill-tree-node/infrastructure/persistence/entity/user-character-skill-tree-node.entity";
 import { UserCharacterMapper } from "src/user-character/infrastructure/persistence/mapper/user-character.mapper";
 

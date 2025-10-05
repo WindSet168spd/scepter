@@ -1,5 +1,5 @@
 import { Controller, Get, HttpCode, HttpStatus, Param } from "@nestjs/common";
-import { User } from "src/user/domain/user";
+import { User } from "@scepter/domains";
 import { UserService } from "src/user/user.service";
 
 @Controller("user")

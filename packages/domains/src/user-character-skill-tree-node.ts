@@ -1,5 +1,5 @@
-import { SkillTreeNode } from "src/skill-tree-node/domain/skill-tree-node";
-import { UserCharacter } from "src/user-character/domain/user-character";
+import { SkillTreeNode } from "./skill-tree-node";
+import { UserCharacter } from "./user-character";
 
 export class UserCharacterSkillTreeNode {
   id: string;

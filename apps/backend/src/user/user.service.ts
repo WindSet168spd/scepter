@@ -3,7 +3,7 @@ import { ok } from "neverthrow";
 import { OmitTimestamps } from "src/honkai-star-rail-api/honkai-star-rail-api.types";
 import { AbstractHonkaiStarRailApiService } from "src/honkai-star-rail-api/service/honkai-star-rail-api.interface";
 import { AbstractUserRepository } from "src/user/infrastructure/persistence/abstract-repository/user.repository";
-import { User } from "src/user/domain/user";
+import { User } from "@scepter/domains";
 
 @Injectable()
 export class UserService {

@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { User } from "src/user/domain/user";
+import { User } from "@scepter/domains";
 import { UserMapper } from "src/user/infrastructure/persistence/mapper/user.mapper";
 import { InjectRepository } from "@nestjs/typeorm";
 import { AbstractUserRepository } from "src/user/infrastructure/persistence/abstract-repository/user.repository";

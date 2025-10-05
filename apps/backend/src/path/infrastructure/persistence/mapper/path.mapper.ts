@@ -1,4 +1,4 @@
-import { Path } from "src/path/domain/path";
+import { Path } from "@scepter/domains";
 import { PathEntity } from "src/path/infrastructure/persistence/entity/path.entity";
 
 export class PathMapper {

@@ -1,4 +1,4 @@
-import { Eidolon } from "src/eidolon/domain/eidolon";
+import { Eidolon } from "@scepter/domains";
 import { EidolonEntity } from "src/eidolon/infrastructure/persistence/entity/eidolon.entity";
 
 export class EidolonMapper {

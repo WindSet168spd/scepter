@@ -1,5 +1,5 @@
-import { Path } from "src/path/domain/path";
-import { StatData } from "src/stat-data/domain/stat-data";
+import { Path } from "./path";
+import { StatData } from "./stat-data";
 
 export class Lightcone {
   id: number;

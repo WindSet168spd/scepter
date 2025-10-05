@@ -1,32 +1,34 @@
-import { User } from "src/user/domain/user";
+import {
+  User,
+  UserCharacter,
+  Character,
+  CombatType,
+  Path,
+  Eidolon,
+  StatData,
+  Stat,
+  SkillTreeNode,
+  Lightcone,
+  UserLightcone,
+  UserCharacterSkillTreeNode,
+  Relic,
+  RelicSet,
+} from "@scepter/domains";
 import { StarRailUserDto } from "src/honkai-star-rail-api/dto/star-rail-user.dto";
-import { OmitTimestamps } from "../honkai-star-rail-api.types";
-import { UserCharacter } from "src/user-character/domain/user-character";
-import { CharacterDto } from "../dto/character.dto";
-import { Character } from "src/character/domain/character";
-import { CombatTypeDto } from "../dto/combat-type.dto";
-import { CombatType } from "src/combat-type/domain/combat-type";
-import { PathDto } from "../dto/path.dto";
-import { Path } from "src/path/domain/path";
-import { EidolonDto } from "../dto/eidolon.dto";
-import { Eidolon } from "src/eidolon/domain/eidolon";
-import { StatPropertyValueDto } from "../dto/stat-property-value.dto";
-import { StatData } from "src/stat-data/domain/stat-data";
+import { OmitTimestamps } from "src/honkai-star-rail-api/honkai-star-rail-api.types";
+import { CharacterDto } from "src/honkai-star-rail-api/dto/character.dto";
+import { CombatTypeDto } from "src/honkai-star-rail-api/dto/combat-type.dto";
+import { PathDto } from "src/honkai-star-rail-api/dto/path.dto";
+import { EidolonDto } from "src/honkai-star-rail-api/dto/eidolon.dto";
+import { StatPropertyValueDto } from "src/honkai-star-rail-api/dto/stat-property-value.dto";
 import { statType, StatType } from "@scepter/utilities";
-import { StatPropertyDto } from "../dto/stat-property.dto";
-import { Stat } from "src/stat/domain/stat";
-import { SkillTreeNodeDto } from "../dto/skill-tree-node.dto";
-import { SkillTreeNode } from "src/skill-tree-node/domain/skill-tree-node";
-import { LeveledSkillTreeNodeDto } from "../dto/leveled-skill-tree-node.dto";
-import { UserCharacterSkillTreeNode } from "src/user-character-skill-tree-node/domain/user-character-skill-tree-node";
-import { LightconeDto } from "../dto/lightcone.dto";
-import { Lightcone } from "src/lightcone/domain/lightcone";
-import { UserLightcone } from "src/user-lightcone/domain/user-lightconde";
-import { Relic } from "src/relic/domain/relic";
-import { RelicDto } from "../dto/relic.dto";
-import { RelicSet } from "src/relic-set/domain/relic-set";
-import { RelicSetDto } from "../dto/relic-set.dto";
-import { relicPartMap } from "../honkai-star-rail-api.constants";
+import { StatPropertyDto } from "src/honkai-star-rail-api/dto/stat-property.dto";
+import { SkillTreeNodeDto } from "src/honkai-star-rail-api/dto/skill-tree-node.dto";
+import { LeveledSkillTreeNodeDto } from "src/honkai-star-rail-api/dto/leveled-skill-tree-node.dto";
+import { LightconeDto } from "src/honkai-star-rail-api/dto/lightcone.dto";
+import { RelicDto } from "src/honkai-star-rail-api/dto/relic.dto";
+import { RelicSetDto } from "src/honkai-star-rail-api/dto/relic-set.dto";
+import { relicPartMap } from "src/honkai-star-rail-api/honkai-star-rail-api.constants";
 
 export class HonkaiStarRailApiMapper {
   static toDomainUser(

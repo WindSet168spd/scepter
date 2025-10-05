@@ -1,5 +1,5 @@
 import { SkillTreeNodeEntity } from "src/skill-tree-node/infrastructure/persistence/entity/skill-tree-node.entity";
-import { SkillTreeNode } from "src/skill-tree-node/domain/skill-tree-node";
+import { SkillTreeNode } from "@scepter/domains";
 import { StatDataMapper } from "src/stat-data/infrastructure/persistence/mapper/stat-data.mapper";
 
 export class SkillTreeNodeMapper {

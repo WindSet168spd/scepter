@@ -1,4 +1,4 @@
-import { UserCharacter } from "src/user-character/domain/user-character";
+import { UserCharacter } from "./user-character";
 
 export class User {
   uid: number;

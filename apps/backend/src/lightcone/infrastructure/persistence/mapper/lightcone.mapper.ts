@@ -1,4 +1,4 @@
-import { Lightcone } from "src/lightcone/domain/lightcone";
+import { Lightcone } from "@scepter/domains";
 import { LightconeEntity } from "src/lightcone/infrastructure/persistence/entity/lightcone.entity";
 import { PathMapper } from "src/path/infrastructure/persistence/mapper/path.mapper";
 import { StatDataMapper } from "src/stat-data/infrastructure/persistence/mapper/stat-data.mapper";
