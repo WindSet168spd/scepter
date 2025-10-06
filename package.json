@@ -21,7 +21,7 @@
   "homepage": "https://github.com/WindSet168spd/scepter#readme",
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/config-conventional": "^20.0.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
     "turbo": "^2.5.4"
