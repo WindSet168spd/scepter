@@ -57,7 +57,7 @@
     "@types/node": "^24.6.2",
     "@types/supertest": "^6.0.2",
     "env-cmd": "^10.1.0",
-    "eslint": "^9.18.0",
+    "eslint": "^9.37.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.2",
     "globals": "^16.0.0",
