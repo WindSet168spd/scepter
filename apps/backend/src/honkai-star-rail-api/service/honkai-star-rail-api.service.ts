@@ -17,9 +17,7 @@ import { HonkaiStarRailApiMapper } from "src/honkai-star-rail-api/mappers/honkai
 import { User } from "@scepter/domains";
 
 @Injectable()
-export class HonkaiStarRailApiService
-  implements AbstractHonkaiStarRailApiService
-{
+export class HonkaiStarRailApiService implements AbstractHonkaiStarRailApiService {
   constructor(@Inject(ENKA) private readonly client: StarRail) {}
 
   findUserByUid(
