@@ -33,6 +33,9 @@ export class UserCharacterEntity {
   @Column({ type: "int2" })
   ascension: number;
 
+  @Column({ type: "int2" })
+  eidolons: number;
+
   @ManyToOne(() => CharacterEntity, (character) => character.userCharacters)
   @JoinColumn({
     name: "character_id",

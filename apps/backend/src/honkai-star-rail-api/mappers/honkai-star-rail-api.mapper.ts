@@ -70,6 +70,7 @@ export class HonkaiStarRailApiMapper {
       id: crypto.randomUUID(),
       level: userCharacterDto.level,
       ascension: userCharacterDto.ascension,
+      eidolons: userCharacterDto.eidolons,
       character: this.toDomainCharacter(userCharacterDto),
       skillTreeNodes: userCharacterDto.skillTreeNodes.map((skillTreeNode) =>
         this.toDomainUserCharacterSkillTreeNode(skillTreeNode),
