@@ -15,6 +15,7 @@ export class UserCharacter {
   costume?: string;
   level: number;
   ascension: number;
+  eidolons: number;
   skillTreeNodes?: UserCharacterSkillTreeNode[];
   createdAt: Date;
   updatedAt: Date;

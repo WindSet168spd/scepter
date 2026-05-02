@@ -14,7 +14,7 @@ services:
       timeout: 2s
       retries: 20
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
     command: postgres -c listen_addresses='*'
     logging:
       options:

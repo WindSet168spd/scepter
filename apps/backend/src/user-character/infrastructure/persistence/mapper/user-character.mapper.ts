@@ -14,6 +14,7 @@ export class UserCharacterMapper {
       costume: raw.costume,
       level: raw.level,
       ascension: raw.ascension,
+      eidolons: raw.eidolons,
       createdAt: raw.createdAt,
       updatedAt: raw.updatedAt,
     };
@@ -52,6 +53,7 @@ export class UserCharacterMapper {
       id: domainEntity.id,
       costume: domainEntity.costume,
       level: domainEntity.level,
+      eidolons: domainEntity.eidolons,
       ascension: domainEntity.ascension,
       createdAt: domainEntity.createdAt,
       updatedAt: domainEntity.updatedAt,
