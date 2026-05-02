@@ -1,0 +1,32 @@
+diff --git a/node_modules/starrail.js/cache/github/starrail_data.json b/node_modules/starrail.js/cache/github/starrail_data.json
+index 350e37d..b756300 100644
+--- a/node_modules/starrail.js/cache/github/starrail_data.json
++++ b/node_modules/starrail.js/cache/github/starrail_data.json
+@@ -1,4 +1,4 @@
+ {
+-    "lastUpdate": 0,
++    "lastUpdate": 1777740959959,
+     "rawLastUpdate": 0
+ }
+\ No newline at end of file
+diff --git a/node_modules/starrail.js/dist/client/StarRail.js b/node_modules/starrail.js/dist/client/StarRail.js
+index 5be04f8..f034d4c 100644
+--- a/node_modules/starrail.js/dist/client/StarRail.js
++++ b/node_modules/starrail.js/dist/client/StarRail.js
+@@ -49,7 +49,7 @@ const defaultImageBaseUrls = [
+         priority: 4,
+         format: "PNG",
+         regexList: Object.keys(yattaMap).map((key) => new RegExp(`^${key}/([^/]+)$`)),
+-        url: "https://api.yatta.top/hsr/assets/UI",
++        url: "https://sr.yatta.top/hsr/assets/UI",
+         customParser: (path) => {
+             const split = path.split("/");
+             // without extension
+@@ -92,6 +92,7 @@ const defaultImageBaseUrls = [
+             /^SpriteOutput\/(.+)/,
+         ],
+         url: "https://raw.githubusercontent.com/FortOfFans/HSR/main",
++        customParser: (path) => path.replace("png", "webp")
+     },
+ ];
+ exports.defaultClientOption = {
