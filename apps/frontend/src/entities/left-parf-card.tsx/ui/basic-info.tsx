@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Character } from "../../../../../../packages/domains/src/character";
-import { pngToWebp, yattaHostConvert } from "@/shared/lib/asset-url-converter";
 
 interface BasicInfoProps {
   level: number;
@@ -17,13 +16,15 @@ const BasicInfo = ({ level, character }: BasicInfoProps) => {
         <Image
           width={35}
           height={35}
-          src={pngToWebp(character?.path?.iconUrl)}
+          style={{ width: "auto", height: "auto" }}
+          src={character?.path?.iconUrl}
           alt="element"
         />
         <Image
           width={35}
           height={35}
-          src={yattaHostConvert(character?.combatType?.iconUrl)}
+          style={{ width: "auto", height: "auto" }}
+          src={character?.combatType?.iconUrl}
           alt="element"
         />
       </div>

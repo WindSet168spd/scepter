@@ -33,7 +33,7 @@ const StatRow = ({ stat, isMainStat = false }: StatRowProps) => {
         width={isMainStat ? 10 : 20}
         height={isMainStat ? 10 : 20}
         alt="stat icon"
-        style={{ width: "auto" }}
+        style={{ width: "auto", height: "auto" }}
         className="flex-shrink-0"
       />
       <p className="text-sm">{formatStatValue(stat.value)}</p>

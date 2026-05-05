@@ -1,6 +1,5 @@
 "use clinet";
 
-import { yattaHostConvert } from "@/shared/lib/asset-url-converter";
 import { Relic } from "../../../../../../packages/domains/src/relic";
 import StatRow from "./stat-row";
 import Image from "next/image";
@@ -21,9 +20,10 @@ const RelicCard = ({ relic }: RelicCardProp) => {
         <div className="w-full relative items-center justify-center bg-indigo-500 text-white border-3 border-blue-950">
           <div className="absolute -bottom-2 ml-2 top-1/2 -translate-y-1/2 w-1/2 z-10">
             <Image
-              src={yattaHostConvert(relic.relicSet?.relicSetIconUrl) || ""}
+              src={relic.relicSet?.relicSetIconUrl || ""}
               fill
               alt="relic art"
+              sizes="12"
             />
           </div>
 

@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { NodeType, SkillNode } from "../model/types/skill-node";
-import { pngToWebp } from "@/shared/lib/asset-url-converter";
 import { cn } from "@/shared/lib/utils";
 
 interface SkillNodeUIProps {
@@ -72,9 +71,7 @@ const SkillNodeUI = ({ node }: SkillNodeUIProps) => {
         )}
       >
         <Image
-          src={
-            node.type === NodeType.STAT ? node.iconUrl : pngToWebp(node.iconUrl)
-          }
+          src={node.type === NodeType.STAT ? node.iconUrl : node.iconUrl}
           width={style.size}
           height={style.size}
           alt="skill-icon"
