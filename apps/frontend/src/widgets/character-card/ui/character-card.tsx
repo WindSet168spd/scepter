@@ -29,6 +29,7 @@ const CharacterCard = ({ character }: props) => {
         character={character.character}
         userSkillTree={character.skillTreeNodes}
         level={character.level}
+        activatedEidolons={character.eidolons}
       />
 
       <div className="flex gap-2">

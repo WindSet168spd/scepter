@@ -71,7 +71,7 @@ const SkillNodeUI = ({ node }: SkillNodeUIProps) => {
         )}
       >
         <Image
-          src={node.type === NodeType.STAT ? node.iconUrl : node.iconUrl}
+          src={node.iconUrl}
           width={style.size}
           height={style.size}
           alt="skill-icon"

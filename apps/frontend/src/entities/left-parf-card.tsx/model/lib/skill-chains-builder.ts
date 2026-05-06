@@ -60,8 +60,6 @@ function buildSkillChains(
     roots.push(first);
   }
 
-  console.log(path);
-  console.log(roots);
   return roots;
 }
 

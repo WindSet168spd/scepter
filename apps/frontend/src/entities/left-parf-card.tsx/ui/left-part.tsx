@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Character } from "../../../../../../packages/domains/src/character";
-import EidolonColumn from "./eidolons";
+import EidolonUI from "./eidolon";
 import SkillTree from "./skill-tree";
 import { UserCharacterSkillTreeNode } from "../../../../../../packages/domains/src/user-character-skill-tree-node";
 import BasicInfo from "./basic-info";
@@ -11,9 +11,15 @@ interface LeftPartProps {
   character?: Character | null;
   userSkillTree?: UserCharacterSkillTreeNode[];
   level: number;
+  activatedEidolons: number;
 }
 
-const LeftPart = ({ character, userSkillTree, level }: LeftPartProps) => {
+const LeftPart = ({
+  character,
+  userSkillTree,
+  level,
+  activatedEidolons,
+}: LeftPartProps) => {
   return (
     <div className="flex w-100 h-100 justify-between bg-blue-400">
       <div className="absolute overflow-hidden w-100 h-100 z-10">
@@ -37,7 +43,13 @@ const LeftPart = ({ character, userSkillTree, level }: LeftPartProps) => {
 
       <div className="mt-5 w-15 z-20">
         {character?.eidolons?.map((eidolon) => {
-          return <EidolonColumn eidolon={eidolon} key={eidolon.id} />;
+          return (
+            <EidolonUI
+              eidolon={eidolon}
+              activatedEidolons={activatedEidolons}
+              key={eidolon.id}
+            />
+          );
         })}
       </div>
     </div>

@@ -35,7 +35,7 @@ const UserPage = () => {
   return (
     <div>
       {user?.userCharacters && (
-        <CharacterCard character={user?.userCharacters[1]} />
+        <CharacterCard character={user?.userCharacters[2]} />
       )}
     </div>
   );
