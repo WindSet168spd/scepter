@@ -1,19 +1,19 @@
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "src/app.module";
 import { ConfigService } from "@nestjs/config";
-import { AllConfigType } from "src/config/config.type";
+import { AllConfigType } from "src/common/infrastructure/configuration/config.type";
 import { VersioningType } from "@nestjs/common";
 import * as bodyParser from "body-parser";
-import { ResultFilter } from "src/utils/filters/result.filter";
-import { ResultInterceptor } from "src/utils/interceptors/result.interceptor";
+import { EffectInterceptor } from "src/common/infrastructure/api/interceptors/effect.interceptor";
+import { AppErrorFilter } from "src/common/infrastructure/api/filters/app-error.filter";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const configService = app.get(ConfigService<AllConfigType>);
 
-  app.useGlobalInterceptors(new ResultInterceptor());
-  app.useGlobalFilters(new ResultFilter());
+  app.useGlobalInterceptors(new EffectInterceptor());
+  app.useGlobalFilters(new AppErrorFilter());
 
   app.setGlobalPrefix(
     configService.getOrThrow("app.globalPrefix", { infer: true }),
