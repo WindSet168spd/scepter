@@ -1,18 +1,16 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
-import appConfig from "src/config/app.config";
+import appConfig from "src/common/infrastructure/configuration/slices/app/app.config";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { TypeOrmConfigService } from "src/database/typeorm-config.service";
+import { TypeOrmConfigService } from "src/common/infrastructure/persistence/typeorm-config.service";
 import { DataSource, DataSourceOptions } from "typeorm";
-import databaseConfig from "src/database/config/database.config";
-import { EnkaModule } from "src/enka/enka.module";
+import databaseConfig from "src/common/infrastructure/configuration/slices/database/database.config";
+import { CommonModule } from "src/common/commom.module";
 import { UserModule } from "src/user/user.module";
-import { CharacterModule } from "src/character/character.module";
-import { HonkaiStarRailApiModule } from "src/honkai-star-rail-api/honkai-star-rail-api.module";
 
 @Module({
   imports: [
-    EnkaModule,
+    CommonModule,
     TypeOrmModule.forRootAsync({
       useClass: TypeOrmConfigService,
       dataSourceFactory: async (options?: DataSourceOptions) => {
@@ -28,8 +26,6 @@ import { HonkaiStarRailApiModule } from "src/honkai-star-rail-api/honkai-star-ra
       envFilePath: [".env"],
     }),
     UserModule,
-    CharacterModule,
-    HonkaiStarRailApiModule,
   ],
   controllers: [],
   providers: [],

@@ -1,12 +1,17 @@
 import { Module } from "@nestjs/common";
-import { UserController } from "src/user/user.controller";
-import { UserService } from "src/user/user.service";
-import { UserPersistenceModule } from "src/user/infrastructure/persistence/persistence.module";
-import { HonkaiStarRailApiModule } from "src/honkai-star-rail-api/honkai-star-rail-api.module";
+import { UserController } from "./infrastructure/api/user.controller";
+import { CommandToken } from "src/common/tokens";
+import { CreateUserCommand } from "./application/commands/create-user/create-user";
+import { HonkaiStarRailDataProviderModule } from "./infrastructure/services/honkai-star-rail-data-provider/honkai-star-rail-data-provider.module";
 
 @Module({
-  imports: [HonkaiStarRailApiModule, UserPersistenceModule],
+  imports: [HonkaiStarRailDataProviderModule],
   controllers: [UserController],
-  providers: [UserService],
+  providers: [
+    {
+      provide: CommandToken.CREATE_USER,
+      useClass: CreateUserCommand,
+    },
+  ],
 })
 export class UserModule {}

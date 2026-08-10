@@ -7,6 +7,7 @@ export class Relic {
   statsData?: StatData[] | null;
   relicSet?: RelicSet | null;
   relicPart: RelicPart;
+  relicIconUrl?: string | null;
   createdAt: Date;
   updatedAt: Date;
 }
