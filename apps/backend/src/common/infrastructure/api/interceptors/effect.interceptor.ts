@@ -25,8 +25,6 @@ export class EffectInterceptor implements NestInterceptor {
   ): Promise<unknown> {
     const exit = await Effect.runPromiseExit(effect);
 
-    console.log(exit);
-
     if (Exit.isSuccess(exit)) {
       return exit.value;
     }
