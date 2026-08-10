@@ -1,51 +1,16 @@
-import {
-  ArgumentsHost,
-  Catch,
-  ExceptionFilter,
-  HttpException,
-  InternalServerErrorException,
-  UnprocessableEntityException,
-} from "@nestjs/common";
+import { ArgumentsHost, Catch, ExceptionFilter } from "@nestjs/common";
+import { Cause } from "effect";
 import { Response } from "express";
-import {
-  AppError,
-  isAppError,
-} from "src/common/infrastructure/api/errors/app-error";
-import { CustomNotFoundException } from "src/common/infrastructure/api/exceptions/not-found.exception";
+import { matchError } from "../errors/match-error";
+import { errorMatcher } from "../errors/error-matcher";
 
 @Catch()
 export class AppErrorFilter implements ExceptionFilter {
-  catch(exception: unknown, host: ArgumentsHost): void {
-    const httpException = this.toHttpException(exception);
-    const response = host.switchToHttp().getResponse<Response>();
-
-    response
-      .status(httpException.getStatus())
-      .json(httpException.getResponse());
-  }
-
-  private toHttpException(exception: unknown): HttpException {
-    if (exception instanceof HttpException) {
-      return exception;
+  catch(error: unknown, _host: ArgumentsHost): void {
+    if (!Cause.isCause(error)) {
+      throw error;
     }
 
-    if (isAppError(exception)) {
-      return this.toAppErrorException(exception);
-    }
-
-    return new InternalServerErrorException();
-  }
-
-  private toAppErrorException(error: AppError) {
-    switch (error._tag) {
-      case "HonkaiStarRailUserNotFoundError":
-        return new CustomNotFoundException("Honkai Star Rail user", error.id);
-      case "InvalidHonkaiStarRailUserError":
-        return new UnprocessableEntityException(
-          "Honkai Star Rail returned unexpected user data",
-        );
-      case "UnexpectedHonkaiStarRailApiError":
-        return new InternalServerErrorException();
-    }
+    matchError(error, errorMatcher);
   }
 }

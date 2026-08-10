@@ -19,6 +19,7 @@ import { TypeOrmConfigService } from "./typeorm-config.service";
     }),
   ],
   providers: [
+    TypeOrmConfigService,
     {
       inject: [TypeOrmConfigService],
       provide: BaseToken.DATA_SOURCE,
